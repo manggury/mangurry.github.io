@@ -6,21 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>장현명 포트폴리오</title>
 
-    <meta name="title" content="반응형기본">
-    <meta name="description" content="반응형기본">
+    <meta name="title" content="장현명 포트폴리오">
+    <meta name="description" content="장현명 포트폴리오">
 
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
 
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/fonts.css">
-    <link rel="stylesheet" href="./css/slick.css">
+    <link rel="stylesheet" href="./css/locomotive-scroll.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
-
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> -->
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/style.css?ver=1.0">
 
     <script src="./js/jquery-1.12.4.min.js"></script>
-    <script src="./js/slick.min.js"></script>
+    <script src="./js/locomotive-scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="./js/custom.js?ver=1.0"></script>
 </head>
 
@@ -38,13 +40,13 @@
                         <li><a href="#footer">푸터</a></li>
                     </ul>
                 </nav>
-                <div class="utils_wrap">
+                <!-- <div class="utils_wrap">
                     <button class="hamburger hamburger--collapse btn" type="button">
                         <span class="hamburger-box">
                             <span class="hamburger-inner"></span>
                         </span>
                     </button>
-                </div>
+                </div> -->
             </div>
         </header>
 
@@ -52,10 +54,12 @@
         <main id="container">
             <section class="section mainVisal" id="mainVisal">
                 <div class="tit">
-                    <h2>
-                        I Am Not User
+                    <h2 class="my_slogan">
+                        <span class="rotate_txt">I'm Not</span>
+                        <span class="rotate_txt02">User</span>
                     </h2>
-                    <p>Who What How</p>
+                    <div class="line">1</div>
+                    <p class="my_slogan_sub">Who What How</p>
                 </div>
             </section>
 
@@ -99,7 +103,7 @@
                                 <div class="link">
                                     <a href="https://manggury.github.io/ko-and-ping/" target="_blank">WEB SITE</a>
                                     <a href="http://knping.com/" target="_blank">ORIGINAL</a>
-                                    <a href="" target="_blank">DESIGN : FIGMA PROTOTYPE</a>
+                                    <a href="" target="_blank">FIGMA</a>
                                 </div>
                             </div>
                             <div class="mokup">
@@ -398,6 +402,7 @@
                 </div>
 
             </section>
+
         </main>
 
 
@@ -405,12 +410,6 @@
             &copy; Jang.
         </footer>
     </div>
-
-    <button class="totop">
-        <span class="material-symbols-outlined">
-            arrow_upward
-        </span>
-    </button>
 </body>
 
 </html>

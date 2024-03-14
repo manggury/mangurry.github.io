@@ -6,9 +6,9 @@
     --white-color: #FFFFFF;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
-} */
+}
 
 /* .wrapper {
     overflow: hidden;
@@ -19,7 +19,7 @@ body {
 }
 
 .inner {
-    max-width: 1440px;
+    max-width: 1680px;
     margin: 0 auto;
     width: 100%;
 }
@@ -28,7 +28,7 @@ body {
     margin: 0 0 16px 0;
     font-size: 60px;
     font-weight: 900;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: var(--white-color);
 }
 
@@ -37,9 +37,10 @@ body {
 
 #header .inner {
     position: fixed;
-    top: 40px;
+    top: 80px;
     left: 0;
     right: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     max-width: 1680px;
@@ -51,18 +52,19 @@ body {
 
 .gnb {
     position: fixed;
-    top: 120px;
-    right: -120px;
+    top: 80px;
+    right: -300px;
     z-index: 999;
     transition: 0.5s;
 }
 
 .gnb.on {
-    right: calc((100% - 1680px) / 2);
+    /* right: calc((100% - 1680px) / 2); */
+    right: -70px;
 }
 
 .gnb ul {
-    text-align: right;
+    /* text-align: right; */
 }
 
 .gnb ul li {
@@ -99,10 +101,6 @@ body {
     background-color: var(--white-color) !important;
 }
 
-.section {
-    border-bottom: 1px solid #fff;
-}
-
 /* 메인비주얼 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 #mainVisal {
     height: 100vh;
@@ -110,54 +108,78 @@ body {
 
 .mainVisal .tit {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    bottom: 80px;
+    left: calc((100% - 1680px) / 2);
+    right: calc((100% - 1680px) / 2);
+    display: flex;
+    justify-content: space-between;
+    text-align: end;
 }
 
 .mainVisal .tit h2 {
+    display: flex;
+    flex-direction: column;
     font-size: 100px;
+    text-align: left;
 }
 
-.mainVisal .tit h2::after {
-    content: "";
-    display: block;
-    width: 1000px;
-    height: 2px;
-    background: var(--white-color);
-    text-align: center;
+.mainVisal .tit h2 span:last-child {
+    font-size: 200px;
 }
+
 
 .mainVisal .tit h2 span {
     display: inline-block;
     vertical-align: middle;
 }
 
+.mainVisal .tit h2 .rotate_txt02 {
+    transform: rotateX(90deg);
+}
+
 .mainVisal .tit p {
-    font-size: 16px;
+    font-size: 46px;
+    text-decoration: line-through;
     line-height: 20px;
+    opacity: 0;
+    writing-mode: vertical-lr;
     color: var(--white-color);
+}
+
+.mainVisal .line {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 0;
+    width: 0;
+    height: 1px;
+    background: var(--white-color);
 }
 
 /* .portfolioㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 
-.portfolio {
+/* .portfolio {
     padding: 125px 0;
-}
+} */
 
 .portfolio .slide_wrap {
     display: flex;
     flex-direction: column;
-    gap: 250px;
+    gap: 50px;
     justify-content: center;
+
 }
 
 .portfolio .slide .inner {
     position: relative;
     display: flex;
-    gap: 120px;
+    /* gap: 150px; */
+    justify-content: space-between;
     align-items: center;
+    height: 100vh;
+    border-top: 1px solid var(--background-color);
+    border-bottom: 1px solid var(--background-color);
 }
 
 .portfolio .slide .inner .desc h3 {
@@ -204,28 +226,42 @@ body {
 
 .portfolio .slide .inner .desc .link {
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    gap: 10px;
+    text-align: center;
 }
 
 .portfolio .slide .inner .desc .link a {
+    flex: 1;
     border-radius: 8px;
     padding: 12px 32px;
     background: var(--primary-color);
-    color: var(--darkgray-colorlor)
+    color: var(--darkgray-colorlor);
 }
 
 .portfolio .slide .inner .mokup {
     position: relative;
 }
 
-.portfolio .slide .inner .mokup_M {
+/* .portfolio .slide .inner .mokup_M {
     position: relative;
     width: 250px;
     height: 500px;
     border: 5px solid #000;
     border-radius: 30px;
     overflow: hidden;
+} */
+.portfolio .slide .inner .mokup_M {
+    position: absolute;
+    top: 50%;
+    left: -300px;
+    transform: translate(0, -50%);
+    width: 350px;
+    height: 700px;
+    border: 1px solid var(--primary-color);
+    border-radius: 30px;
+    overflow: hidden;
+
+    cursor: n-resize
 }
 
 .portfolio .slide .inner .mokup_M::before {
@@ -264,11 +300,11 @@ body {
 }
 
 .portfolio .slide .inner .mokup_p {
-    position: absolute;
+    /* position: absolute;
     top: 50%;
-    left: 0;
-    transform: translate(0, -50%);
-    z-index: -1;
+    left: 300px;
+    transform: translate(0, -50%); */
+    /* z-index: -1; */
     width: 720px;
     height: 375px;
     border: 5px solid #000;
