@@ -27,15 +27,62 @@ $(function () {
         return false;
     });
 
-    // const hd = gsap.timeline({
-    //     pin: true,
-    // });
-    // hd.to(".inner", { y: 80, delay: 3, })
+    gsap.registerPlugin(ScrollTrigger);
 
-    const mainVisual = gsap.timeline();
-    mainVisual.to(".my_slogan .rotate_txt", { rotateX: 360, speeds: 5000, duration: 2, })
-    mainVisual.to(".my_slogan .rotate_txt02", { rotateX: 0, speeds: 5000, duration: 2, })
-    mainVisual.to(".mainVisal .my_slogan_sub", { opacity: 1, duration: 1, })
-    mainVisual.to(".mainVisal .line", { width: 1680, duration: 1, })
+    const tl = gsap.timeline()
+        .to(".my_slogan", { rotateX: 0, speeds: 5000, duration: 1, })
+        .to(".mainVisal .my_slogan_sub", { opacity: 1, delay: 1, duration: 1, })
+        .to(".mainVisal .scroll_btn", { opacity: 1, duration: 1, });
+
+
+    gsap.to(".mainVisal .line", {
+        scrollTrigger: {
+            trigger: '.mainVisal',
+            start: "0% 0%",
+            end: "+=100",
+            scrub: 1,
+        },
+        width: 1680,
+    });
+
+    gsap.to(".mainVisal .tit", {
+        scrollTrigger: {
+            trigger: '.mainVisal',
+            start: "0% 0%",
+            end: "100% 60%",
+            scrub: 1,
+        },
+        speeds: 1000,
+        opacity: 0,
+        top: "-40%",
+    });
+
+    function animateSlide(slideClass, descX, mokupX) {
+        gsap.from(`.portfolio ${slideClass} .desc`, {
+            scrollTrigger: {
+                trigger: `.portfolio ${slideClass}`,
+                start: "-50% 0%",
+                end: "+=100",
+                scrub: 1,
+            },
+            x: descX
+        });
+
+        gsap.from(`.portfolio ${slideClass} .inner .mokup`, {
+            scrollTrigger: {
+                trigger: `.portfolio ${slideClass}`,
+                start: "-50% 0%",
+                end: "+=100",
+                scrub: 1,
+            },
+            x: mokupX
+        });
+    }
+
+    animateSlide('.slide01', -1000, 1300);
+    animateSlide('.slide02', -1000, 1300);
+    animateSlide('.slide03', -1000, 1300);
+    animateSlide('.slide04', -1000, 1300);
+    animateSlide('.slide05', -1000, 1300);
 
 });

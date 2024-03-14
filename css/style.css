@@ -52,7 +52,7 @@ body {
 
 .gnb {
     position: fixed;
-    top: 80px;
+    top: 120px;
     right: -300px;
     z-index: 999;
     transition: 0.5s;
@@ -60,7 +60,7 @@ body {
 
 .gnb.on {
     /* right: calc((100% - 1680px) / 2); */
-    right: -70px;
+    right: 50px;
 }
 
 .gnb ul {
@@ -104,82 +104,141 @@ body {
 /* 메인비주얼 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 #mainVisal {
     height: 100vh;
+    /* background: var(--primary-color); */
 }
 
 .mainVisal .tit {
     position: absolute;
-    bottom: 80px;
+    bottom: 150px;
     left: calc((100% - 1680px) / 2);
     right: calc((100% - 1680px) / 2);
-    display: flex;
-    justify-content: space-between;
-    text-align: end;
 }
 
 .mainVisal .tit h2 {
-    display: flex;
-    flex-direction: column;
-    font-size: 100px;
-    text-align: left;
-}
-
-.mainVisal .tit h2 span:last-child {
-    font-size: 200px;
-}
-
-
-.mainVisal .tit h2 span {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.mainVisal .tit h2 .rotate_txt02 {
+    display: block;
+    margin: 0 0 40px 0;
     transform: rotateX(90deg);
 }
 
+.mainVisal .tit h2 span {
+    font-size: 12vw;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+}
+
+.mainVisal .tit h2 span:last-child {
+    font-size: 16vw;
+    font-weight: 900;
+}
+
 .mainVisal .tit p {
-    font-size: 46px;
-    text-decoration: line-through;
-    line-height: 20px;
+    font-size: 6vw;
     opacity: 0;
-    writing-mode: vertical-lr;
     color: var(--white-color);
 }
 
 .mainVisal .line {
     position: absolute;
-    bottom: -30px;
+    bottom: 0px;
     left: 50%;
     transform: translate(-50%, 0);
     font-size: 0;
     width: 0;
     height: 1px;
-    background: var(--white-color);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.mainVisal .scroll_btn {
+    position: absolute;
+    bottom: 80px;
+    right: calc((100% - 1680px) / 2);
+    z-index: 999;
+    opacity: 0;
+    /* animation: scroll01 infinite 2s; */
+}
+
+.mainVisal .scroll_btn .icon {
+    position: relative;
+    font-size: 40px;
+    line-height: 30px;
+    color: var(--white-color);
+}
+
+.mainVisal .scroll_btn .icon::after {
+    content: "\e5cf";
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: scroll02 infinite 2s;
+}
+
+.mainVisal .scroll_btn .icon::before {
+    content: "\e5cf";
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: scroll03 infinite 2s;
+}
+
+@keyframes scroll01 {
+    0% {
+        bottom: 150px;
+    }
+
+    50% {
+        bottom: 120px;
+    }
+
+    10% {
+        bottom: 150px;
+    }
+}
+
+@keyframes scroll02 {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: 50px;
+    }
+
+    10% {
+        top: 0;
+    }
+}
+
+@keyframes scroll03 {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: 90px;
+    }
+
+    10% {
+        top: 0;
+    }
 }
 
 /* .portfolioㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 
-/* .portfolio {
-    padding: 125px 0;
-} */
 
 .portfolio .slide_wrap {
     display: flex;
     flex-direction: column;
-    gap: 50px;
     justify-content: center;
-
 }
 
 .portfolio .slide .inner {
     position: relative;
     display: flex;
-    /* gap: 150px; */
     justify-content: space-between;
     align-items: center;
     height: 100vh;
-    border-top: 1px solid var(--background-color);
-    border-bottom: 1px solid var(--background-color);
 }
 
 .portfolio .slide .inner .desc h3 {
@@ -224,6 +283,15 @@ body {
     border-bottom: 1px solid var(--lightgray-color);
 }
 
+.portfolio .slide .inner .desc .desc_table td span {
+    display: inline-block;
+    font-size: 0;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
 .portfolio .slide .inner .desc .link {
     display: flex;
     gap: 10px;
@@ -242,22 +310,14 @@ body {
     position: relative;
 }
 
-/* .portfolio .slide .inner .mokup_M {
-    position: relative;
-    width: 250px;
-    height: 500px;
-    border: 5px solid #000;
-    border-radius: 30px;
-    overflow: hidden;
-} */
 .portfolio .slide .inner .mokup_M {
     position: absolute;
-    top: 50%;
-    left: -300px;
-    transform: translate(0, -50%);
-    width: 350px;
-    height: 700px;
-    border: 1px solid var(--primary-color);
+    top: 100px;
+    left: -100px;
+    z-index: 999;
+    width: 300px;
+    height: 600px;
+    border: 3px solid #000;
     border-radius: 30px;
     overflow: hidden;
 
@@ -270,7 +330,7 @@ body {
     inset: 0 0 0 0;
     z-index: -1;
     width: 100%;
-    border-radius: 30px;
+    border-radius: 20px;
 
     transition: 7s;
 }
@@ -300,13 +360,8 @@ body {
 }
 
 .portfolio .slide .inner .mokup_p {
-    /* position: absolute;
-    top: 50%;
-    left: 300px;
-    transform: translate(0, -50%); */
-    /* z-index: -1; */
-    width: 720px;
-    height: 375px;
+    width: 1000px;
+    height: 500px;
     border: 5px solid #000;
     border-radius: 15px;
     overflow: hidden;
